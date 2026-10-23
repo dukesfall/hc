@@ -1,0 +1,343 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <meta name="theme-color" content="#030303" />
+  <meta name="description" content="HUMAN COLLECT" />
+  <title>HUMAN COLLECT</title>
+
+  <style>
+    * {
+      box-sizing: border-box;
+      margin: 0;
+      padding: 0;
+    }
+
+    html, body {
+      width: 100%;
+      min-height: 100%;
+    }
+
+    body {
+      min-height: 100svh;
+      display: grid;
+      place-items: center;
+      overflow: hidden;
+      background:
+        radial-gradient(
+          ellipse 56% 44% at 50% 46%,
+          #0b0b0c 0%,
+          #050506 42%,
+          #020203 72%,
+          #000000 100%
+        );
+      color: #ececec;
+      font-family: Helvetica, Arial, sans-serif;
+      -webkit-font-smoothing: antialiased;
+      text-rendering: optimizeLegibility;
+    }
+
+    main {
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      justify-content: center;
+      gap: 32px;
+      width: 100%;
+      padding: 24px;
+    }
+
+    .logo {
+      width: clamp(170px, 24vw, 250px);
+      height: auto;
+      display: block;
+      overflow: visible;
+      filter: drop-shadow(0 10px 24px rgba(255,255,255,0.022));
+    }
+
+    .company-name {
+      font-size: clamp(12px, 1.35vw, 15px);
+      font-weight: 500;
+      letter-spacing: 0.42em;
+      line-height: 1;
+      white-space: nowrap;
+      text-align: center;
+      color: #dddddd;
+      padding-left: 0.42em;
+    }
+
+    @media (max-width: 480px) {
+      .company-name {
+        font-size: 12px;
+        letter-spacing: 0.34em;
+        padding-left: 0.34em;
+      }
+    }
+
+    @media (prefers-reduced-motion: reduce) {
+      * {
+        animation: none !important;
+        transition: none !important;
+      }
+    }
+  </style>
+</head>
+<body>
+  <main>
+    <svg
+      class="logo"
+      viewBox="0 0 300 252"
+      xmlns="http://www.w3.org/2000/svg"
+      role="img"
+      aria-label="Human Collect logo"
+    >
+      <defs>
+        <!-- Outer shell shapes -->
+        <path
+          id="leftShell"
+          d="
+            M34 78
+            C34 38 64 18 105 18
+            C146 18 172 42 172 80
+            V171
+            C172 212 145 234 104 234
+            C64 234 34 211 34 171
+            Z
+          "
+        />
+
+        <path
+          id="rightShell"
+          d="
+            M128 80
+            C128 42 154 18 195 18
+            C236 18 266 38 266 78
+            V171
+            C266 211 236 234 196 234
+            C155 234 128 212 128 171
+            Z
+          "
+        />
+
+ 
+        <mask id="logoMask" maskUnits="userSpaceOnUse" x="0" y="0" width="300" height="252">
+          <rect width="300" height="252" fill="black" />
+          <g fill="white">
+            <use href="#leftShell" />
+            <use href="#rightShell" />
+          </g>
+
+     
+          <rect x="80" y="65" width="47" height="124" rx="23.5" fill="black" />
+          <rect x="173" y="65" width="47" height="124" rx="23.5" fill="black" />
+          <rect x="103" y="111" width="94" height="30" fill="black" />
+        </mask>
+
+
+        <linearGradient id="baseMetal" x1="0" y1="0" x2="1" y2="1">
+          <stop offset="0%" stop-color="#0e0f10" />
+          <stop offset="28%" stop-color="#18191b" />
+          <stop offset="52%" stop-color="#0d0e10" />
+          <stop offset="76%" stop-color="#1a1c1f" />
+          <stop offset="100%" stop-color="#090a0c" />
+        </linearGradient>
+
+
+        <linearGradient id="sheen" x1="0" y1="0" x2="1" y2="0">
+          <stop offset="0%" stop-color="rgba(255,255,255,0)" />
+          <stop offset="24%" stop-color="rgba(255,255,255,0.018)" />
+          <stop offset="50%" stop-color="rgba(255,255,255,0.065)" />
+          <stop offset="76%" stop-color="rgba(255,255,255,0.018)" />
+          <stop offset="100%" stop-color="rgba(255,255,255,0)" />
+        </linearGradient>
+
+
+        <filter id="flowBlur" x="-25%" y="-25%" width="150%" height="150%" color-interpolation-filters="sRGB">
+          <feGaussianBlur stdDeviation="1.55" />
+        </filter>
+
+        <filter id="softGlow" x="-30%" y="-30%" width="160%" height="160%" color-interpolation-filters="sRGB">
+          <feGaussianBlur stdDeviation="2.8" result="blur" />
+          <feComponentTransfer>
+            <feFuncA type="linear" slope="0.92" />
+          </feComponentTransfer>
+        </filter>
+
+
+        <path
+          id="flowLoop"
+          d="
+            M132 93
+            C132 62 121 46 92 46
+            C62 46 51 62 51 92
+            L51 182
+            C51 213 62 227 92 227
+            C121 227 132 212 132 182
+
+            C132 171 140 160 150 153
+            C160 146 166 132 167 118
+            C168 106 168 98 167 93
+
+            C167 62 178 46 208 46
+            C238 46 249 62 249 92
+            L249 182
+            C249 213 238 227 208 227
+            C178 227 167 212 167 182
+
+            C167 168 160 156 150 147
+            C140 138 133 124 132 110
+            C131 104 131 98 132 93
+            Z
+          "
+        />
+      </defs>
+
+      <g mask="url(#logoMask)">
+        <rect x="0" y="0" width="300" height="252" fill="url(#baseMetal)" />
+        <rect x="0" y="0" width="300" height="252" fill="url(#sheen)" opacity="0.65" />
+      </g>
+
+      <g mask="url(#logoMask)">
+        <g id="flowGlowLayer" filter="url(#softGlow)"></g>
+        <g id="flowCoreLayer" filter="url(#flowBlur)"></g>
+      </g>
+    </svg>
+
+    <h1 class="company-name">HUMAN COLLECT</h1>
+  </main>
+
+  <script>
+    (() => {
+      "use strict";
+
+      const SVG_NS = "http://www.w3.org/2000/svg";
+      const path = document.getElementById("flowLoop");
+      const glowLayer = document.getElementById("flowGlowLayer");
+      const coreLayer = document.getElementById("flowCoreLayer");
+      const reduceMotion = window.matchMedia("(prefers-reduced-motion: reduce)");
+
+      /*
+        TUNING
+        - requestAnimationFrame gives smooth frame-sync rendering
+        - DURATION lowered for a faster loop
+        - SEGMENT_SIZE lowered for smoother visual continuity
+      */
+      const DURATION = 5500;   // faster, but still elegant
+      const WIDTH = 0.115;      // flowing ribbon width
+      const SEGMENT_SIZE = 1.45; // denser segmentation for smoother flow
+      const GLOW_WIDTH = 42;
+      const CORE_WIDTH = 28;
+
+      const BASE = 16;
+      const MID = 122;
+      const HOT = 248;
+
+      const total = path.getTotalLength();
+      const glowPieces = [];
+      const corePieces = [];
+
+      function makeSegment(layer, p0, p1, strokeWidth) {
+        const seg = document.createElementNS(SVG_NS, "path");
+        seg.setAttribute(
+          "d",
+          `M ${p0.x.toFixed(3)} ${p0.y.toFixed(3)} L ${p1.x.toFixed(3)} ${p1.y.toFixed(3)}`
+        );
+        seg.setAttribute("fill", "none");
+        seg.setAttribute("stroke-linecap", "round");
+        seg.setAttribute("stroke-linejoin", "round");
+        seg.setAttribute("stroke-width", strokeWidth);
+        layer.appendChild(seg);
+        return seg;
+      }
+
+      const steps = Math.ceil(total / SEGMENT_SIZE);
+
+      for (let i = 0; i < steps; i++) {
+        const a = (i / steps) * total;
+        const b = ((i + 1) / steps) * total;
+
+        const p0 = path.getPointAtLength(a);
+        const p1 = path.getPointAtLength(b);
+        const midpoint = (a + b) / 2;
+
+        const glowSeg = makeSegment(glowLayer, p0, p1, GLOW_WIDTH);
+        const coreSeg = makeSegment(coreLayer, p0, p1, CORE_WIDTH);
+
+        glowPieces.push({
+          node: glowSeg,
+          pos: midpoint / total,
+          last: ""
+        });
+
+        corePieces.push({
+          node: coreSeg,
+          pos: midpoint / total,
+          last: ""
+        });
+      }
+
+      function gaussian(distance, width) {
+        return Math.exp(-0.5 * Math.pow(distance / width, 2));
+      }
+
+      function clamp(v, min, max) {
+        return Math.min(max, Math.max(min, v));
+      }
+
+      function paint(progress) {
+        for (let i = 0; i < glowPieces.length; i++) {
+          const glowPiece = glowPieces[i];
+          const corePiece = corePieces[i];
+
+          let d = Math.abs(glowPiece.pos - progress);
+          d = Math.min(d, 1 - d);
+
+          // broad fluid glow
+          const glowIntensity = gaussian(d, WIDTH);
+          const glowShade = Math.round(BASE + (MID - BASE) * glowIntensity);
+          const glowOpacity = clamp(glowIntensity * 0.92, 0, 0.92);
+
+          const glowStroke = `rgba(${glowShade}, ${glowShade}, ${Math.min(255, glowShade + 8)}, ${glowOpacity.toFixed(4)})`;
+
+          if (glowStroke !== glowPiece.last) {
+            glowPiece.node.setAttribute("stroke", glowStroke);
+            glowPiece.last = glowStroke;
+          }
+
+          // hotter liquid-metal core
+          const coreIntensity = gaussian(d, WIDTH * 0.54);
+          const coreShade = Math.round(BASE + (HOT - BASE) * coreIntensity);
+          const coreOpacity = clamp(coreIntensity, 0, 1);
+
+          const coreStroke = `rgba(${coreShade}, ${coreShade}, ${Math.min(255, coreShade + 10)}, ${coreOpacity.toFixed(4)})`;
+
+          if (coreStroke !== corePiece.last) {
+            corePiece.node.setAttribute("stroke", coreStroke);
+            corePiece.last = coreStroke;
+          }
+        }
+      }
+
+      if (reduceMotion.matches) {
+        paint(0.18);
+        return;
+      }
+
+      let start = null;
+
+      function animate(now) {
+        if (!start) start = now;
+
+        const elapsed = (now - start) % DURATION;
+        const progress = elapsed / DURATION;
+
+        paint(progress);
+        requestAnimationFrame(animate);
+      }
+
+      requestAnimationFrame(animate);
+    })();
+  </script>
+</body>
+</html>
