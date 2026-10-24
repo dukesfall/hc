@@ -1,0 +1,266 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="theme-color" content="#060708">
+  <meta name="robots" content="index, follow, max-snippet:-1, max-image-preview:large">
+  <title>Human Data Collection for Humanoid Robots | Human Collect</title>
+  <meta name="description" content="Learn how human data collection powers humanoid robot training: demonstrations, teleoperation, motion capture, imitation learning, and embodied AI datasets.">
+  <link rel="canonical" href="https://humancollect.com/human-data-collection.html">
+  <meta property="og:type" content="article">
+  <meta property="og:site_name" content="Human Collect">
+  <meta property="og:title" content="Human Data Collection for Humanoid Robots">
+  <meta property="og:description" content="A practical guide to human demonstrations, robot imitation learning, teleoperation, and embodied AI training data.">
+  <meta property="og:url" content="https://humancollect.com/human-data-collection.html">
+  <meta name="twitter:card" content="summary">
+  <script type="application/ld+json">
+  {
+    "@context": "https://schema.org",
+    "@type": "Article",
+    "mainEntityOfPage": {
+      "@type": "WebPage",
+      "@id": "https://humancollect.com/human-data-collection.html"
+    },
+    "headline": "Human Data Collection for Humanoid Robots",
+    "description": "An educational guide to human demonstrations, humanoid robot training data, teleoperation, motion capture and embodied AI.",
+    "author": {"@type": "Organization", "name": "Human Collect", "url": "https://humancollect.com/"},
+    "publisher": {"@type": "Organization", "name": "Human Collect", "url": "https://humancollect.com/"},
+    "inLanguage": "en",
+    "about": [
+      {"@type": "Thing", "name": "Human data collection"},
+      {"@type": "Thing", "name": "Humanoid robot training"},
+      {"@type": "Thing", "name": "Embodied artificial intelligence"},
+      {"@type": "Thing", "name": "Robot imitation learning"}
+    ]
+  }
+  </script>
+  <style>
+    :root { color-scheme: dark; --bg:#060708; --panel:#0c0e10; --line:#272b2d; --text:#edeff0; --muted:#b0b8bd; --faint:#849098; --silver:#d3dbe0; }
+    *, *::before, *::after { box-sizing:border-box; }
+    html { scroll-behavior:smooth; scroll-padding-top:90px; }
+    body { margin:0; background:var(--bg); color:var(--text); font:16px/1.75 -apple-system,BlinkMacSystemFont,"Segoe UI",Helvetica,Arial,sans-serif; -webkit-font-smoothing:antialiased; }
+    body::before { content:""; position:absolute; z-index:-1; inset:0 0 auto; height:710px; pointer-events:none; background:radial-gradient(ellipse 53% 55% at 50% 4%,#181c20 0%,#0b0d0f 42%,transparent 100%); }
+    a { color:#e4ebee; text-underline-offset:4px; }
+    a:hover { color:white; }
+    a:focus-visible { outline:2px solid white; outline-offset:5px; }
+    .wrap { max-width:1140px; margin-inline:auto; padding-inline:clamp(22px,5vw,56px); }
+    .site-header { border-bottom:1px solid #1d2124; }
+    .header-inner { min-height:76px; display:flex; justify-content:space-between; align-items:center; gap:24px; }
+    .brand { color:#f4f5f6; font-size:13px; letter-spacing:.32em; text-transform:uppercase; font-weight:700; text-decoration:none; white-space:nowrap; }
+    .header-link { font-size:12px; color:#aeb7bc; text-decoration:none; letter-spacing:.1em; text-transform:uppercase; }
+    .header-link::before { content:"← "; }
+    .hero { padding-block:100px 72px; border-bottom:1px solid var(--line); }
+    .eyebrow, .section-label { color:#c5cdd1; font-size:11px; font-weight:700; letter-spacing:.22em; text-transform:uppercase; }
+    h1, h2, h3 { letter-spacing:-.035em; line-height:1.14; }
+    h1 { max-width:920px; font-weight:580; font-size:clamp(43px,6.7vw,82px); margin:19px 0 27px; }
+    h1 span { color:#9ca9b0; }
+    .lede { max-width:750px; margin:0; color:#c8d0d4; font-size:clamp(18px,2.1vw,22px); line-height:1.65; }
+    .chips { display:flex; flex-wrap:wrap; gap:10px; margin-top:34px; }
+    .chip { padding:6px 12px; border:1px solid #31373b; border-radius:100px; color:#bac4ca; font-size:12px; }
+    .body-grid { display:grid; grid-template-columns:minmax(0,1fr) 224px; gap:clamp(40px,6vw,96px); padding-top:63px; }
+    article { min-width:0; padding-bottom:95px; }
+    .toc { align-self:start; position:sticky; top:34px; font-size:13px; }
+    .toc strong { display:block; margin-bottom:16px; text-transform:uppercase; letter-spacing:.15em; font-size:11px; color:#a9b4ba; }
+    .toc a { display:block; border-left:1px solid #343a3e; padding:8px 0 8px 15px; text-decoration:none; color:#adb7bd; line-height:1.4; }
+    .toc a:hover { color:#fff; border-color:#fff; }
+    article section { margin-bottom:72px; scroll-margin-top:35px; }
+    article p { color:#c1c9ce; margin:0 0 19px; }
+    article h2 { margin:0 0 21px; font-size:clamp(29px,3.7vw,40px); font-weight:590; }
+    article h3 { margin:25px 0 9px; font-size:20px; font-weight:620; }
+    .quick-answer { padding:28px 32px; background:linear-gradient(120deg,#171b1e,#0e1113 80%); border:1px solid #343b40; border-radius:10px; margin-bottom:64px; }
+    .quick-answer h2 { font-size:17px; text-transform:uppercase; letter-spacing:.12em; margin:0 0 10px; }
+    .quick-answer p { margin:0; color:#e0e5e7; }
+    .numbered { list-style:none; padding:0; counter-reset:step; }
+    .numbered li { position:relative; padding:0 0 21px 46px; margin:0 0 19px; border-bottom:1px solid #202528; color:#c1c9ce; }
+    .numbered li::before { counter-increment:step; content:counter(step, decimal-leading-zero); position:absolute; left:0; top:0; color:#ebeff1; font-size:13px; font-weight:700; }
+    .numbered strong { color:#f2f4f5; }
+    .methods { display:grid; grid-template-columns:1fr 1fr; gap:14px; margin-top:25px; }
+    .method { padding:22px; border:1px solid #2b3236; border-radius:9px; background:#0b0e10; }
+    .method .tag { font-size:11px; color:#95a3ab; letter-spacing:.13em; text-transform:uppercase; }
+    .method h3 { margin:8px 0 12px; font-size:20px; }
+    .method p { margin:0; font-size:14px; color:#bbc5ca; }
+    .table-scroll { max-width:100%; overflow-x:auto; margin-top:20px; border:1px solid #2d3337; border-radius:9px; }
+    table { width:100%; border-collapse:collapse; min-width:520px; text-align:left; }
+    th { background:#13171a; color:#f2f4f5; text-transform:uppercase; letter-spacing:.1em; font-size:11px; }
+    th,td { vertical-align:top; padding:13px 17px; border-bottom:1px solid #2d3337; }
+    td { color:#c1c9ce; font-size:14px; }
+    tr:last-child td { border-bottom:none; }
+    .note { border-left:2px solid #cbd4d9; padding:5px 0 5px 20px; margin:28px 0; color:#d1d9dc; }
+    .checklist { margin:15px 0; padding-left:23px; color:#c1c9ce; }
+    .checklist li { padding-left:5px; margin-bottom:13px; }
+    .faq-item { padding:19px 0; border-bottom:1px solid #2b3135; }
+    .faq-item h3 { margin:0 0 11px; font-size:19px; }
+    .faq-item p { margin:0; }
+    .sources { padding:26px; border:1px solid #2c3438; border-radius:10px; background:#0b0e10; }
+    .sources ul { padding-left:18px; margin:0; }
+    .sources li { margin:12px 0; color:#c1c9ce; }
+    .sources p { font-size:13px; color:#9caab1; }
+    footer { border-top:1px solid #22282c; padding-block:36px 56px; font-size:12px; color:#9ba7ad; }
+    footer .wrap { display:flex; flex-wrap:wrap; justify-content:space-between; gap:22px; }
+    footer a { color:#c6d0d5; }
+    @media (max-width:830px) { .body-grid { grid-template-columns:minmax(0,1fr); } .toc { display:none; } .hero { padding-top:76px; } }
+    @media (max-width:570px) { .methods { grid-template-columns:1fr; } .header-link { font-size:11px; } .brand { letter-spacing:.15em; } .quick-answer { padding:23px; } }
+    @media (prefers-reduced-motion:reduce) { html { scroll-behavior:auto; } }
+  </style>
+</head>
+<body>
+  <header class="site-header">
+    <div class="wrap header-inner">
+      <a class="brand" href="/" aria-label="Human Collect homepage">HUMAN COLLECT</a>
+      <a class="header-link" href="/">Main site</a>
+    </div>
+  </header>
+
+  <div class="wrap">
+    <header class="hero">
+      <div class="eyebrow">Human Collect / Research Guide</div>
+      <h1>Human data collection <span>for humanoid robots.</span></h1>
+      <p class="lede">How human demonstrations become training data for humanoid robotics, robot imitation learning, and embodied AI—and why the quality of those demonstrations matters as much as their quantity.</p>
+      <div class="chips" aria-label="Topics covered">
+        <span class="chip">Humanoid training</span>
+        <span class="chip">Embodied AI</span>
+        <span class="chip">Human demonstrations</span>
+        <span class="chip">Robot teleoperation</span>
+      </div>
+    </header>
+
+    <div class="body-grid">
+      <main id="content">
+        <article>
+          <aside class="quick-answer" aria-label="Quick definition">
+            <h2>What is human data collection?</h2>
+            <p><strong>Human data collection for robotics</strong> is the process of recording people performing tasks—or controlling robots performing them—and organizing those recordings into data that can help train, evaluate, or improve robot behavior. The data may include video, motion tracking, robot actions, sensor readings, task labels, and contextual metadata.</p>
+          </aside>
+
+          <section id="definition">
+            <div class="section-label">01 / Foundations</div>
+            <h2>What human data collection means in robotics</h2>
+            <p>Humanoid robots operate in environments designed around human bodies, hands, tools, and routines. To manipulate objects, navigate a room, or carry out a multistep task, a robot needs more than a list of commands. It needs examples of what a task looks like, what actions can achieve it, and how conditions change during execution.</p>
+            <p>Human demonstration data offers one way to supply that experience. A person might fold a towel, organize objects on a table, open a cabinet, or direct a robot through a similar sequence. Researchers then transform the resulting observations and action information into a dataset suitable for a learning method.</p>
+            <p>The phrase <strong>human data collection</strong> covers several distinct methods. A camera recording a person provides useful visual examples, while a teleoperated robot may additionally record the robot's joint states and commanded actions. Those are different kinds of evidence, and they are not interchangeable.</p>
+          </section>
+
+          <section id="training">
+            <div class="section-label">02 / Application</div>
+            <h2>How human demonstrations train humanoid robots</h2>
+            <p>A common approach is <strong>imitation learning</strong>: a model learns a policy—a mapping from observations and goals to actions—from demonstrated behavior. Related methods use human examples to learn visual representations, task structure, object interactions, or reward signals. Training may also combine demonstrations with simulation, reinforcement learning, and robot-collected experience.</p>
+            <p>For <strong>humanoid robot training</strong>, the difficult part is translating a human example into actions a particular machine can physically perform. Human hands and robot grippers differ. Human joints and robotic actuators have different ranges, strengths, and constraints. A video of a successful task does not, by itself, specify safe or executable motor commands.</p>
+            <p>That translation is often called <strong>retargeting</strong> or cross-embodiment transfer. It is why datasets may need calibrated sensors, temporal alignment, body or hand poses, corresponding robot actions, and careful validation on the target hardware.</p>
+            <div class="note"><strong>Key distinction:</strong> Human activity video can teach a system about tasks and visual context. Action-labeled robot demonstrations give a more direct signal for learning motor control. Strong training pipelines may use both.</div>
+          </section>
+
+          <section id="pipeline">
+            <div class="section-label">03 / Workflow</div>
+            <h2>The human-to-robot data pipeline</h2>
+            <p>Although implementations vary, a useful <strong>robotics training-data collection</strong> workflow generally follows five stages:</p>
+            <ol class="numbered">
+              <li><strong>Define the task.</strong> Specify goals, objects, workspace conditions, success criteria, and failure states. Include variation rather than only ideal examples.</li>
+              <li><strong>Capture demonstrations.</strong> Record videos, motion traces, teleoperation trajectories, or other sensor streams with appropriate permissions and safety controls.</li>
+              <li><strong>Synchronize and annotate.</strong> Align timestamps, document sensor calibration, label goals and outcomes, and retain useful task context.</li>
+              <li><strong>Transform for the robot.</strong> Estimate relevant poses, map movement into the robot's action space where possible, and reject physically infeasible or low-quality examples.</li>
+              <li><strong>Train and evaluate.</strong> Measure real performance on held-out objects, locations, and task variations. Collect additional examples where the robot struggles.</li>
+            </ol>
+          </section>
+
+          <section id="methods">
+            <div class="section-label">04 / Collection methods</div>
+            <h2>Four ways to collect human-generated robotics data</h2>
+            <div class="methods">
+              <div class="method"><div class="tag">Method 01</div><h3>Human activity video</h3><p>RGB or depth recordings of people doing real tasks. Useful for visual understanding and task context; usually does not include direct robot control labels.</p></div>
+              <div class="method"><div class="tag">Method 02</div><h3>Robot teleoperation</h3><p>A human controls robot arms, hands, or the full body. The system can record observations alongside actual robot commands and resulting states.</p></div>
+              <div class="method"><div class="tag">Method 03</div><h3>Motion capture</h3><p>Body, hand, and object trajectories are measured with cameras, sensors, or wearable devices. Retargeting is needed to account for robot geometry and physics.</p></div>
+              <div class="method"><div class="tag">Complementary method</div><h3>Simulation &amp; synthetic data</h3><p>Virtual scenes provide repeatable practice and controlled variation. Simulation is not human collection by itself, but it can augment demonstration datasets.</p></div>
+            </div>
+          </section>
+
+          <section id="datasets">
+            <div class="section-label">05 / Dataset design</div>
+            <h2>What makes humanoid training data useful?</h2>
+            <p>A large number of recordings is not automatically a good dataset. The right signals depend on whether the objective is task recognition, visual representation learning, manipulation, whole-body control, or evaluation.</p>
+            <div class="table-scroll">
+              <table>
+                <thead><tr><th scope="col">Data element</th><th scope="col">Why it matters</th></tr></thead>
+                <tbody>
+                  <tr><td>Time-aligned video</td><td>Captures object states, hand interactions, workspace context, and changes through time.</td></tr>
+                  <tr><td>Robot actions and state</td><td>Provides control targets such as end-effector motion, joint position, or gripper commands.</td></tr>
+                  <tr><td>Human motion or pose</td><td>Describes demonstrated movement that may be retargeted to a robot when feasible.</td></tr>
+                  <tr><td>Task and outcome labels</td><td>Connects a demonstration to its goal, success or failure, and sequence of substeps.</td></tr>
+                  <tr><td>Calibration and timestamps</td><td>Make different cameras, sensors, and action streams interpretable together.</td></tr>
+                  <tr><td>Scene variation and provenance</td><td>Support robust evaluation, reproducibility, consent tracking, and dataset governance.</td></tr>
+                </tbody>
+              </table>
+            </div>
+            <h3>Why diversity matters</h3>
+            <p>A task demonstrated on only one object, in one room, under one lighting condition may not transfer well. Training and evaluation should cover meaningful differences in environments, object geometry, task order, and operator technique—and should keep some scenarios genuinely unseen during evaluation.</p>
+          </section>
+
+          <section id="quality">
+            <div class="section-label">06 / Practical framework</div>
+            <h2>A human data collection quality checklist</h2>
+            <p>Before building or evaluating an <strong>embodied AI dataset</strong>, ask:</p>
+            <ul class="checklist">
+              <li><strong>Purpose:</strong> Is the task and intended robot behavior defined precisely?</li>
+              <li><strong>Actionability:</strong> Does the data contain the control signals required by the planned training method, or is it only visual evidence?</li>
+              <li><strong>Coverage:</strong> Are there enough variations, failures, and recovery cases to test generalization?</li>
+              <li><strong>Integrity:</strong> Are timestamps, frame rates, calibration, and annotations internally consistent?</li>
+              <li><strong>Safety:</strong> Are human collection, teleoperation, and robot testing performed with appropriate safeguards?</li>
+              <li><strong>Rights and privacy:</strong> Are informed consent, permitted uses, retention, access controls, and third-party privacy documented?</li>
+            </ul>
+            <p>This checklist is a planning framework, not a universal benchmark. Dataset specifications must be adapted to the hardware, model, task, and applicable law.</p>
+          </section>
+
+          <section id="research">
+            <div class="section-label">07 / Research context</div>
+            <h2>Examples from robotics research</h2>
+            <p>The value of demonstration data is visible in published robotics work. <strong>Open X-Embodiment</strong> unifies datasets across multiple robot embodiments, illustrating why interoperable datasets matter. <strong>DROID</strong> emphasizes robot manipulation demonstrations across varied environments. Research on humanoid motion imitation investigates how human motion-capture examples can be adapted when a robot cannot reproduce the original movement exactly.</p>
+            <p>These projects are distinct from Human Collect. They are included as independently published examples of methods and research challenges—not as collaborators, customers, or endorsements.</p>
+          </section>
+
+          <section id="faq">
+            <div class="section-label">08 / Common questions</div>
+            <h2>Frequently asked questions</h2>
+            <div class="faq-item"><h3>What is human data collection for AI?</h3><p>It is the structured capture of human-generated examples for AI systems. In robotics, those examples may be videos, tracked movements, labels, or teleoperated robot actions used for training or evaluation.</p></div>
+            <div class="faq-item"><h3>Can humanoid robots learn from videos of people?</h3><p>Human videos can help models recognize actions, objects, and task structure. Turning video into reliable robot control usually requires additional modeling, inference, retargeting, or robot-specific data because the video may not provide explicit action commands.</p></div>
+            <div class="faq-item"><h3>What is the difference between imitation learning and teleoperation?</h3><p>Teleoperation is a way to control a robot and collect demonstrations. Imitation learning is a family of methods that learns behavior from demonstrations, including demonstrations gathered through teleoperation.</p></div>
+            <div class="faq-item"><h3>What is embodied AI training data?</h3><p>Data used to train systems that perceive and act in a physical or simulated environment. Depending on the task, it may combine images, language goals, robot states, actions, contact signals, and outcomes.</p></div>
+            <div class="faq-item"><h3>Is more human data always better for robot training?</h3><p>No. Relevant variation, accurate synchronization, valid action labels, safe demonstrations, and evaluation design can matter more than raw recording volume. The best collection strategy depends on the target robot and behavior.</p></div>
+          </section>
+
+          <section class="sources" id="sources">
+            <div class="section-label">Further reading / Primary sources</div>
+            <h2>Research and references</h2>
+            <p>Sources below document the research examples and technical distinctions discussed in this guide.</p>
+            <ul>
+              <li><a href="https://github.com/google-deepmind/open_x_embodiment" target="_blank" rel="noopener noreferrer">Google DeepMind — Open X-Embodiment dataset repository</a></li>
+              <li><a href="https://droid-dataset.github.io/" target="_blank" rel="noopener noreferrer">DROID — A large-scale, in-the-wild robot manipulation dataset</a></li>
+              <li><a href="https://proceedings.mlr.press/v270/zhao25a.html" target="_blank" rel="noopener noreferrer">Bi-Level Motion Imitation for Humanoid Robots — CoRL / PMLR</a></li>
+              <li><a href="https://arxiv.org/abs/2503.07017" target="_blank" rel="noopener noreferrer">How to Train Your Robots? The Impact of Demonstration Modality on Imitation Learning</a></li>
+            </ul>
+          </section>
+        </article>
+      </main>
+
+      <nav class="toc" aria-label="Contents">
+        <strong>On this page</strong>
+        <a href="#definition">Definition</a>
+        <a href="#training">Humanoid training</a>
+        <a href="#pipeline">Data pipeline</a>
+        <a href="#methods">Collection methods</a>
+        <a href="#datasets">Dataset requirements</a>
+        <a href="#quality">Quality checklist</a>
+        <a href="#research">Research context</a>
+        <a href="#faq">FAQ</a>
+        <a href="#sources">References</a>
+      </nav>
+    </div>
+  </div>
+
+  <footer>
+    <div class="wrap">
+      <span>© HUMAN COLLECT · Independent educational resource on robotics training data.</span>
+      <span>This page does not solicit human recordings or imply affiliation with any cited research organization. <a href="/">Return home</a></span>
+    </div>
+  </footer>
+</body>
+</html>
